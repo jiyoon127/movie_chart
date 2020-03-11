@@ -1,39 +1,23 @@
 import React, { Component } from 'react';
-import './Detail.css';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import './Detail_redux.css';
 
 class Detail extends Component {
-  state = {
-    movie: [],
-  };
-
-  getDetails = async id => {
-    console.log({ id });
-    if (id) {
-      const {
-        data: {
-          data: { movie },
-        },
-      } = await axios.get(
-        `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`,
-      );
-
-      this.setState({ movie });
-    }
-  };
-
   componentDidMount() {
-    console.log(this.props);
-    const { history, match } = this.props;
-    if (match.params === undefined) {
-      history.push('/');
-    }
-    this.getDetails(match.params.id);
-    console.log(match.params);
+    // const { getDetails, id } = this.props;
+    // // console.log(this.props);
+    // // const { history, match } = this.props;
+    // // if (match.params === undefined) {
+    // //   history.push('/');
+    // // }
+    // getDetails(id);
+    // console.log(id);
   }
 
   render() {
-    const { movie } = this.state;
+    const { get_details } = this.props;
+    get_details();
+    const { movie } = this.props;
     console.log({ movie });
     if (movie.length !== 0) {
       return (
@@ -84,5 +68,15 @@ class Detail extends Component {
     } else return null;
   }
 }
+
+Detail.propTypes = {
+  movie: PropTypes.arrayOf(PropTypes.string),
+  get_details: PropTypes.func,
+};
+
+Detail.defaultProps = {
+  movie: [],
+  get_details: () => console.warn('getDetails not defined'),
+};
 
 export default Detail;
