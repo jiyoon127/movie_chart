@@ -24,18 +24,18 @@ class Detail extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    const { location, history } = this.props;
-    if (location.state === undefined) {
+    const { history, match } = this.props;
+    if (match.params === undefined) {
       history.push('/');
     }
-    this.getDetails(location.state.id);
+    this.getDetails(match.params.id);
+    console.log(match.params);
   }
 
   render() {
-    const { location } = this.props;
     const { movie } = this.state;
     console.log({ movie });
-    if (movie) {
+    if (movie.length !== 0) {
       return (
         <div className="movie__detail">
           <div className="center">
@@ -52,7 +52,7 @@ class Detail extends Component {
                 {movie.year}
               </p>
               <ul className="movie__genres">
-                {location.state.genres.map((genre, index) => (
+                {movie.genres.map((genre, index) => (
                   <li key={index} className="genres__genre">
                     {genre}
                   </li>
