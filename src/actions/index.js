@@ -1,6 +1,6 @@
 import * as types from './ActionTypes';
 
-export const get_details = movie => ({
-  type: types.GET_DETAILS,
+export const set_movie = movie => ({
+  type: types.SET_MOVIE,
   movie,
 });

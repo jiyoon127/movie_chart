@@ -1,9 +1,18 @@
-import get_details from './getDetails';
+import * as types from '../actions/ActionTypes';
 
-import { combineReducers } from 'redux';
+const initialState = {
+  movie: [],
+};
 
-const reducers = combineReducers({
-  detailData: get_details,
-});
+function detail(state = initialState, action) {
+  switch (action.type) {
+    case types.SET_MOVIE:
+      return {
+        movie: action.movie,
+      };
+    default:
+      return state;
+  }
+}
 
-export default reducers;
+export default detail;

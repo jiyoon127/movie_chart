@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Detail_redux.css';
+import axios from 'axios';
 
 class Detail extends Component {
-  componentDidMount() {
-    // const { getDetails, id } = this.props;
-    // // console.log(this.props);
-    // // const { history, match } = this.props;
-    // // if (match.params === undefined) {
-    // //   history.push('/');
-    // // }
-    // getDetails(id);
-    // console.log(id);
-  }
+  // state = {
+  //   movie: [],
+  // };
+
+  getDetails = async id => {
+    console.log(id);
+    if (id) {
+      const {
+        data: {
+          data: { movie },
+        },
+      } = await axios.get(
+        `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`,
+      );
+      console.log(movie);
+      // this.setState({ movie });
+      this.props.set_movie({ movie });
+    }
+  };
+
+  // componentDidMount() {
+  //   console.log(this.props);
+  //   const { history, match } = this.props;
+  //   if (match.params === undefined) {
+  //     history.push('/');
+  //   }
+  //   this.getDetails(match.params.id);
+  // }
+
+  ///axios 분리하기
 
   render() {
-    const { get_details } = this.props;
-    get_details();
-    const { movie } = this.props;
+    const { match, movie } = this.props;
+    this.getDetails(match.params.id);
+    // const { movie } = this.state;
     console.log({ movie });
     if (movie.length !== 0) {
       return (

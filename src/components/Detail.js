@@ -3,10 +3,10 @@ import DetailContainer from '../containers/DetailContainers';
 
 class Detail extends Component {
   render() {
-    const { id } = this.props.match.params;
+    const { history, match } = this.props;
     return (
       <div>
-        <DetailContainer id={id} />
+        <DetailContainer history={history} match={match} />
       </div>
     );
   }

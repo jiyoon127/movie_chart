@@ -1,1 +1,1 @@
-export const GET_DETAILS = 'GET_DETAILS';
+export const SET_MOVIE = 'SET_MOVIE';
