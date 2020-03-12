@@ -18,26 +18,26 @@ class Detail extends Component {
       } = await axios.get(
         `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`,
       );
-      console.log(movie);
+      console.log(this.props);
       // this.setState({ movie });
-      this.props.set_movie({ movie });
+      this.props.onSetMovie(movie);
     }
   };
 
-  // componentDidMount() {
-  //   console.log(this.props);
-  //   const { history, match } = this.props;
-  //   if (match.params === undefined) {
-  //     history.push('/');
-  //   }
-  //   this.getDetails(match.params.id);
-  // }
+  componentDidMount() {
+    console.log(this.props);
+    const { history, match } = this.props;
+    if (match.params === undefined) {
+      history.push('/');
+    }
+    this.getDetails(match.params.id);
+  }
 
   ///axios 분리하기
 
   render() {
     const { match, movie } = this.props;
-    this.getDetails(match.params.id);
+    // this.getDetails(match.params.id);
     // const { movie } = this.state;
     console.log({ movie });
     if (movie.length !== 0) {
