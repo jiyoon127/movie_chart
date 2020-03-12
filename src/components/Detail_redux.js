@@ -95,7 +95,7 @@ class Detail extends Component {
 }
 
 Detail.propTypes = {
-  movie: PropTypes.arrayOf(PropTypes.string),
+  movie: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSetMovie: PropTypes.func,
 };
 

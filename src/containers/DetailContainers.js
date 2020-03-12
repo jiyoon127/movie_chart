@@ -3,7 +3,7 @@ import * as actions from '../actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  movie: state.movie,
+  movie: state.movieData.movie,
 });
 
 const mapDispatchToProps = dispatch => ({
