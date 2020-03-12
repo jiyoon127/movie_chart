@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Movie from '../components/Movie';
-import './Home.css';
+import Movie from './Movie';
+import './Home_redux.css';
+import PropTypes from 'prop-types';
 
 class Home extends Component {
-  state = {
-    isLoading: true,
-    movies: [],
-  };
+  // state = {
+  //   isLoading: true,
+  //   movies: [],
+  // };
 
   getMovies = async () => {
     const {
@@ -17,7 +18,8 @@ class Home extends Component {
     } = await axios.get(
       'https://yts.mx/api/v2/list_movies.json?sort_by=rathing',
     );
-    this.setState({ movies, isLoading: false }); //same as movies:movies
+    // this.setState({ movies, isLoading: false }); //same as movies:movies
+    this.props.onSetMovies(movies);
   };
 
   componentDidMount() {
@@ -25,7 +27,8 @@ class Home extends Component {
   }
 
   render() {
-    const { isLoading, movies } = this.state;
+    const { isLoading, movies } = this.props;
+    console.log(this.props);
     return (
       <section className="container">
         {isLoading ? (
@@ -52,4 +55,15 @@ class Home extends Component {
   }
 }
 
+Home.propTypes = {
+  isLoading: PropTypes.bool,
+  movies: PropTypes.arrayOf(PropTypes.object),
+  onSetMovies: PropTypes.func,
+};
+
+Home.defaultProps = {
+  isLoading: true,
+  movies: [],
+  onSetMovies: () => console.warn('setMovies is not defined'),
+};
 export default Home;

@@ -96,12 +96,12 @@ class Detail extends Component {
 
 Detail.propTypes = {
   movie: PropTypes.arrayOf(PropTypes.string),
-  get_details: PropTypes.func,
+  onSetMovie: PropTypes.func,
 };
 
 Detail.defaultProps = {
   movie: [],
-  get_details: () => console.warn('getDetails not defined'),
+  onSetMovie: () => console.warn('setMovie is not defined'),
 };
 
 export default Detail;
