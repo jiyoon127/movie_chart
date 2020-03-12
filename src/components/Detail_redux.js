@@ -82,6 +82,10 @@ class Detail extends Component {
             <div className="synopsis">
               <p style={{ fontWeight: 800 }}>Synopsis</p>
               <p className="movie__summary">{movie.description_full}</p>
+              <p className="movie__summary">{movie.description_full}</p>
+              <p className="movie__summary">{movie.description_full}</p>
+              <p className="movie__summary">{movie.description_full}</p>
+              <p className="movie__summary">{movie.description_full}</p>
             </div>
           </div>
         </div>
