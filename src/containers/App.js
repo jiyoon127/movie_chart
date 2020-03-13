@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import About from '../routes/About';
-import Home from '../components/Home';
-import Detail from '../components/Detail';
+import HomeContainers from './HomeContainers';
+import DetailContainers from './DetailContainers';
 import Navigation from '../components/Navigation';
 import NotFound from '../routes/NotFound';
 
@@ -12,9 +12,9 @@ class App extends Component {
       <HashRouter>
         <Navigation />
         <Switch>
-          <Route path="/" exact={true} component={Home} />
+          <Route path="/" exact={true} component={HomeContainers} />
           <Route path="/about" component={About} />
-          <Route path="/movie_detail/:id" component={Detail} />
+          <Route path="/movie_detail/:id" component={DetailContainers} />
           <Route component={NotFound} />
         </Switch>
       </HashRouter>

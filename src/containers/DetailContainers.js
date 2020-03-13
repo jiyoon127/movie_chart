@@ -1,4 +1,4 @@
-import Detail from '../components/Detail_redux';
+import Detail from '../components/Detail';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 
