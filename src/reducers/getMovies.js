@@ -27,23 +27,6 @@ function home(state = initialState, action) {
         };
       }
 
-    // return {
-    //   isLoading: false,
-    //   movies: action.movies,
-    //   // movies: () => {
-    //   //   console.log('HEYYYYYYY');
-    //   //   if (action.value === 'All') {
-    //   //     console.log('action ALLLL!!!');
-    //   //     return action.movies;
-    //   //   } else {
-    //   //     action.movies.filter(n => {
-    //   //       if (n.genres.indexOf(action.value)) {
-    //   //         return n;
-    //   //       } else return null;
-    //   //     });
-    //   //   }
-    //   // },
-    // };
     case types.SEND_VALUE:
       return {
         isLoading: false,
