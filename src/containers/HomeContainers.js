@@ -6,13 +6,17 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => ({
   movies: state.moviesData.movies,
   isLoading: state.moviesData.isLoading,
+  value: state.moviesData.value,
 });
 
 const mapDispatchToProps = dispatch => ({
   // onSetMovies: movies => dispatch(actions.set_movies(movies)),
-  onGetMovies: () => {
-    dispatch(actions.get_movies());
+  onGetMovies: value => {
+    dispatch(actions.get_movies(value));
     // console.log(this.state.isLoading);
+  },
+  onSendValue: value => {
+    dispatch(actions.sendValue(value));
   },
 });
 

@@ -1,8 +1,22 @@
+.movie__sort {
+  padding-top: 7vh;
+  border: none;
+  padding-left: 40px;
+  justify-content: end;
+}
+
+#genres {
+  border: solid #d0e8ff 1px;
+  font-size: large;
+  background-color: white;
+}
+
 .container {
   padding-top: 5vh;
   height: 100%;
   display: flex;
   justify-content: center;
+  flex-flow: column;
 }
 
 .loader {
@@ -31,6 +45,11 @@
     display: flex;
     justify-content: center;
   }
+  #genres {
+    border: solid #d0e8ff 1px;
+    font-size: medium;
+    background-color: white;
+  }
 }
 @media only screen and (max-width: 320px) {
   .container {
@@ -38,5 +57,10 @@
     height: 100%;
     display: flex;
     justify-content: center;
+  }
+  #genres {
+    border: solid #d0e8ff 1px;
+    font-size: small;
+    background-color: white;
   }
 }
