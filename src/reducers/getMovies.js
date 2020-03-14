@@ -15,24 +15,30 @@ function home(state = initialState, action) {
         return {
           isLoading: false,
           movies: action.movies,
+          value: action.value,
         };
       } else {
-        console.log('action. nothing');
         action.movies = action.movies.filter(
           n => n.genres.indexOf(action.value) > -1,
         );
+        // if (action.movies.length === 0) {
+        //   return {
+        //     isLoading: false,
+        //     movies:action.movies
+        //   };
+        // }
         return {
           isLoading: false,
           movies: action.movies,
+          value: action.value,
         };
       }
 
     case types.SEND_VALUE:
       return {
-        isLoading: false,
+        isLoading: true,
         value: action.value,
       };
-    // return action.movies;
     default:
       return state;
   }

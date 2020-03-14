@@ -55,18 +55,31 @@ class Home extends Component {
               <span className="loader__text">Loading...</span>
             </div>
           ) : (
-            <div className="movies">
-              {movies.map(movie => (
-                <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  year={movie.year}
-                  title={movie.title}
-                  summary={movie.summary}
-                  poster={movie.medium_cover_image}
-                  genres={movie.genres}
-                />
-              ))}
+            <div className="sort__content">
+              {movies[0] ? (
+                <div className="movies">
+                  {movies.map(movie => (
+                    <Movie
+                      key={movie.id}
+                      id={movie.id}
+                      year={movie.year}
+                      title={movie.title}
+                      summary={movie.summary}
+                      poster={movie.medium_cover_image}
+                      genres={movie.genres}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="loader">
+                  <div className="no__movies">
+                    <span>
+                      Currently, there's no {this.props.value} movies in the
+                      chart.
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </section>
