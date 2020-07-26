@@ -6,4 +6,4 @@ React JS Fundamentals tutorial 2020
 
 To see the results
 
--> https://jiyoon127.github.io/movie_chart/#/movie_detail/18378
+-> https://jiyoon127.github.io/movie_chart/#/
